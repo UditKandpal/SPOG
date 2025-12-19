@@ -125,7 +125,7 @@ success, result = generate_enhanced_orthomosaic(
 )
 
 if success:
-    print(result)  # Prints ICPR metrics summary
+    print(result)  # Prints metrics summary
 else:
     print(f"Error: {result}")
 ```
@@ -314,7 +314,7 @@ If you use this tool in research, please cite:
 
 ```bibtex
 @software{solar_panel_orthomosaic,
-  title={Solar Panel Orthomosaic Generator: ICPR-Ready Pattern Preservation Algorithm},
+  title={Solar Panel Orthomosaic Generator: Pattern Preservation Algorithm},
   author={UditKandpal},
   year={2024},
   description={High-quality orthomosaic generation optimized for solar panel installations}
