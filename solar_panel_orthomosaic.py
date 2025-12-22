@@ -22,6 +22,9 @@ def world_to_pixel_fast(world_x, world_y, x_min, y_min, width_scale, height_scal
     pixel_x = (world_x - x_min) * width_scale
     pixel_y = (world_y - y_min) * height_scale
     
+    # FIX: Flip Y-axis for correct north-up orientation (image Y=0 is at top, world Y increases upward)
+    pixel_y = output_height - 1 - pixel_y
+    
     # Clamp to valid range
     pixel_x = max(0.0, min(output_width - 1.0, pixel_x))
     pixel_y = max(0.0, min(output_height - 1.0, pixel_y))
