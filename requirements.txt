@@ -1,0 +1,6 @@
+moderngl
+numpy
+pillow
+opencv-python
+scipy
+tifffile

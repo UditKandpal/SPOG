@@ -141,7 +141,7 @@ Mesh holes and seam gaps are filled using `scipy.ndimage.distance_transform_edt`
 ### Prerequisites
 
 ```bash
-pip install moderngl numpy pillow opencv-python scipy tifffile
+pip install -r requirements.txt
 ```
 
 GPU requirements: NVIDIA GPU with EGL support (tested on RTX A4000). The EGL backend runs headless — no display server, Xvfb, or VirtualGL required.
@@ -155,16 +155,21 @@ python3 spog_gpu_runner.py --model model_1
 ### Run on your own model
 
 ```bash
+# Auto-detects any .obj file in the folder
 python3 spog_gpu_runner.py --model /path/to/your/model --size 16384
+
+# Explicit OBJ path (use when the folder has multiple .obj files)
+python3 spog_gpu_runner.py --model /path/to/your/model --obj /path/to/your/model/mesh.obj
 ```
 
-The folder must contain `drm_textured_model_geo.obj` (the mesh) and the associated texture PNG/TIF files.
+The model folder must contain the mesh `.obj` file and its associated texture images (PNG, JPG, or TIF). If the OBJ is named `drm_textured_model_geo.obj` (WebODM / OpenDroneMap default) it is auto-detected; otherwise any `.obj` in the folder is used, or you can pass `--obj` explicitly.
 
 ### Options
 
 | Flag | Default | Description |
 |---|---|---|
 | `--model` | `model_1` | Path to model folder (OBJ + textures) |
+| `--obj` | auto | Explicit path to `.obj` file |
 | `--size` | `16384` | Maximum output side in pixels |
 | `--no-roi` | off | Skip panel ROI masking |
 | `--debug-roi` | off | Save intermediate ROI mask layers |

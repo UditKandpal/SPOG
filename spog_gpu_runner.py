@@ -47,6 +47,8 @@ def main():
     parser = argparse.ArgumentParser(description="SPOG GPU — Solar Farm Orthomosaic Generator")
     parser.add_argument('--model',     default='model_1',
                         help='Model folder containing OBJ + textures (default: model_1)')
+    parser.add_argument('--obj',       default=None,
+                        help='Explicit path to .obj file (auto-detected if omitted)')
     parser.add_argument('--size',      type=int, default=16384,
                         help='Maximum output side length in pixels (default: 16384)')
     parser.add_argument('--no-roi',    action='store_true',
@@ -59,10 +61,27 @@ def main():
     output_dir = RESULTS_DIR / model_dir.name
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    obj_file   = model_dir / 'drm_textured_model_geo.obj'
+    # Resolve OBJ: explicit --obj flag > well-known ODM name > any .obj in folder
+    if args.obj:
+        obj_file = Path(args.obj)
+    else:
+        candidate = model_dir / 'drm_textured_model_geo.obj'
+        if candidate.exists():
+            obj_file = candidate
+        else:
+            objs = list(model_dir.glob('*.obj'))
+            if not objs:
+                print(f"ERROR: No .obj file found in {model_dir}")
+                sys.exit(1)
+            if len(objs) > 1:
+                print(f"WARNING: Multiple .obj files found; using {objs[0].name}. "
+                      f"Use --obj to specify explicitly.")
+            obj_file = objs[0]
+
     output_tif = output_dir / 'spog_gpu_orthomosaic.tif'
 
     print(f"Model   : {model_dir}")
+    print(f"OBJ     : {obj_file.name}")
     print(f"Output  : {output_dir}  (16-bit uncompressed TIFF)")
     print(f"Canvas  : up to {args.size} px (longest side)")
 
