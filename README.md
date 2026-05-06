@@ -88,6 +88,19 @@ Mesh holes and seam gaps are filled using `scipy.ndimage.distance_transform_edt`
 
 ---
 
+## Visual Results
+
+Side-by-side orthomosaic comparisons (SPOG GPU vs WebODM vs Agisoft Metashape) with zoomed panel-level detail:
+
+| Dataset | Comparison PDF |
+|---|---|
+| 200-image (459 × 252 m) | [📄 200_comparison.pdf](comparisons/200_comparison.pdf) |
+| 500-image (1,176 × 389 m) | [📄 500_comparison.pdf](comparisons/500_comparison.pdf) |
+
+Each PDF shows the full orthomosaic side-by-side and zoomed crop regions highlighting how SPOG GPU preserves cell boundaries, busbar edges, and defect signatures that are blurred or artefact-corrupted in WebODM and Agisoft outputs.
+
+---
+
 ## Results
 
 **200-image dataset** (459 × 252 m scene, 339,627-face mesh):
