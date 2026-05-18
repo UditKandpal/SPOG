@@ -1,11 +1,11 @@
-# SPOG GPU — Geometry-Driven GPU Rendering for High-Fidelity UAV Solar Farm Orthomosaics
+# SPOG: A GPU Rasterization Pipeline for Artifact-Free Photovoltaic Farm Orthomosaics
 
 **SPOG GPU** is a post-processing renderer that takes a textured 3-D mesh produced by any photogrammetry pipeline (WebODM, OpenDroneMap, Agisoft Metashape) and generates a high-fidelity 16-bit orthomosaic specifically optimised for solar PV farm inspection.
 
 The rendering stage runs entirely on the GPU via OpenGL 3.3 / ModernGL + EGL (headless, no display server), achieving ~100× speedup over CPU-based alternatives while preserving every algorithmic guarantee from the original SPOG paper.
 
 > **Research context:** This implementation accompanies the paper  
-> *"SPOG GPU: Geometry-Driven GPU Rendering for High-Fidelity UAV Solar Farm Orthomosaics"*  
+> *“SPOG: A GPU Rasterization Pipeline for Artifact-Free Photovoltaic Farm Orthomosaics”*  
 > submitted to IEEE Geoscience and Remote Sensing Letters (IEEE GRSL).
 
 ---
