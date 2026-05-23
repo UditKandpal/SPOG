@@ -228,12 +228,12 @@ Computed metrics: Edge Density, High-Frequency Energy, Detected Grid Lines, Text
 If you use SPOG GPU in research, please cite:
 
 ```bibtex
-@article{kandpal2025spoggpu,
+@article{kandpal2026spoggpu,
   title   = {{SPOG GPU}: Geometry-Driven {GPU} Rendering for High-Fidelity
              {UAV} Solar Farm Orthomosaics},
   author  = {Kandpal, Udit and Das, Debasis},
   journal = {IEEE Geoscience and Remote Sensing Letters},
-  year    = {2025},
+  year    = {2026},
   note    = {Under review}
 }
 ```
